@@ -1,0 +1,20 @@
+.answer-timer-container{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    border-bottom: 1px solid rgb(66, 65, 65);
+    
+    .progress{
+        height: 6px;
+        transition-duration: 1s;
+        width: 0%;
+        background: red;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        transition-timing-function: linear;
+        
+    }
+}
