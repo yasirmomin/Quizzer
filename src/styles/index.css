@@ -1,0 +1,15 @@
+
+body {
+  font-family: monospace;
+  background-image: url(https://images.pexels.com/photos/247671/pexels-photo-247671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);   color: #fefeff;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 30px;
+  height: 100vh;
+  opacity: 0.95;
+}

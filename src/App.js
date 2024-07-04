@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import Quiz from './Components/Quiz/Quiz.js';
+import './Components/Quiz/Quiz.css';
+import { useEffect,useState } from 'react';
+import WelcomePage from './Components/WelcomePage/welcome.js';
+import "./Components/WelcomePage/welcome.css"
 
 function App() {
+
+  const [questions,setQuestions] = useState([]);
+  const [quizStarted, setQuizStarted] = useState(false);
+  useEffect (()=>{
+    getQuestions();
+  },[]);
+
+  const getQuestions= async()=>{
+    try {
+      const response =await fetch("https://644982a3e7eb3378ca4ba471.mockapi.io/questions");
+      const questionsResponse = await response.json();
+      setQuestions(questionsResponse);
+      console.log(questionsResponse);
+    } catch (error) {
+        console.log(error)
+    }
+  };
+  
+  const startQuiz = () => {
+    setQuizStarted(true);
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      {!quizStarted && <WelcomePage onStartQuiz={startQuiz} />}
+      {quizStarted && questions.length > 0 && <Quiz questions={questions} />}
     </div>
   );
+
+       
+    
+  
 }
 
 export default App;
